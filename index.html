@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seblak Corner - Order Now</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">🌶️ Seblak Corner</h1>
+                <p class="tagline">Delicious Indonesian Street Food</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="app-layout">
+            <!-- Left Panel - Order Form -->
+            <div class="order-panel">
+                <!-- Progress Steps -->
+                <div class="steps-header">
+                    <div class="step-item active" data-step="1">
+                        <div class="step-number">1</div>
+                        <span>Base</span>
+                    </div>
+                    <div class="step-item" data-step="2">
+                        <div class="step-number">2</div>
+                        <span>Spice</span>
+                    </div>
+                    <div class="step-item" data-step="3">
+                        <div class="step-number">3</div>
+                        <span>Toppings</span>
+                    </div>
+                    <div class="step-item" data-step="4">
+                        <div class="step-number">4</div>
+                        <span>Review</span>
+                    </div>
+                    <div class="step-item" data-step="5">
+                        <div class="step-number">5</div>
+                        <span>Checkout</span>
+                    </div>
+                    <div class="step-item" data-step="6">
+                        <div class="step-number">6</div>
+                        <span>Confirm</span>
+                    </div>
+                </div>
+
+                <!-- Step 1: Base Selection -->
+                <div class="step-content active" id="step1">
+                    <div class="section">
+                        <h2 class="section-title">Choose Your Base</h2>
+                        <p class="section-subtitle">Start by selecting your seblak base and kencur level</p>
+                        <div class="options-grid">
+                            <div class="option-card" data-type="kuah" data-value="gurih"
+                                onclick="selectOption(this, 'kuah', 'gurih')">
+                                <div class="option-icon">🍲</div>
+                                <h3>Kuah Gurih</h3>
+                                <p>Savory broth base</p>
+                            </div>
+                            <div class="option-card" data-type="kuah" data-value="manis"
+                                onclick="selectOption(this, 'kuah', 'manis')">
+                                <div class="option-icon">🍯</div>
+                                <h3>Kuah Manis</h3>
+                                <p>Sweet and savory</p>
+                            </div>
+                            <div class="option-card" data-type="kuah" data-value="asin"
+                                onclick="selectOption(this, 'kuah', 'asin')">
+                                <div class="option-icon">🧂</div>
+                                <h3>Kuah Asin</h3>
+                                <p>Salty rich flavor</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2 class="section-title">Kencur Level</h2>
+                        <div class="options-grid">
+                            <div class="option-card" data-type="kencur" data-value="normal"
+                                onclick="selectOption(this, 'kencur', 'normal')">
+                                <div class="option-icon">🌿</div>
+                                <h3>Normal</h3>
+                                <p>Standard kencur</p>
+                            </div>
+                            <div class="option-card" data-type="kencur" data-value="strong"
+                                onclick="selectOption(this, 'kencur', 'strong')">
+                                <div class="option-icon">💪</div>
+                                <h3>Strong</h3>
+                                <p>Extra kencur kick</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2 class="section-title">🥚 Egg Options</h2>
+                        <div class="options-grid">
+                            <div class="option-card" data-type="egg" data-value="none" data-price="0"
+                                onclick="selectEgg(this, 'none', 0)">
+                                <div class="option-icon">❌</div>
+                                <h3>No Egg</h3>
+                                <span class="option-price">FREE</span>
+                            </div>
+                            <div class="option-card" data-type="egg" data-value="whole" data-price="4000"
+                                onclick="selectEgg(this, 'whole', 4000)">
+                                <div class="option-icon">🥚</div>
+                                <h3>Whole Egg</h3>
+                                <span class="option-price">+Rp 4,000</span>
+                            </div>
+                            <div class="option-card" data-type="egg" data-value="scrambled" data-price="4000"
+                                onclick="selectEgg(this, 'scrambled', 4000)">
+                                <div class="option-icon">🍳</div>
+                                <h3>Scrambled</h3>
+                                <span class="option-price">+Rp 4,000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-actions">
+                        <button class="btn btn-primary" onclick="nextStep(2)">
+                            Next: Choose Spice Level
+                            <span class="btn-icon">→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Spice Level -->
+                <div class="step-content" id="step2">
+                    <div class="section">
+                        <h2 class="section-title">🌶️ How Spicy Do You Like It?</h2>
+                        <p class="section-subtitle">Choose your spice level carefully!</p>
+
+                        <div class="spice-levels">
+                            <div class="spice-card" data-level="0" data-price="0" onclick="selectSpice(this, 0, 0)">
+                                <div class="spice-indicator">
+                                    <div class="spice-bar" style="width: 0%"></div>
+                                </div>
+                                <h3>Level 0</h3>
+                                <p>No spice</p>
+                                <span class="price">FREE</span>
+                            </div>
+                            <div class="spice-card" data-level="1" data-price="0" onclick="selectSpice(this, 1, 0)">
+                                <div class="spice-indicator">
+                                    <div class="spice-bar" style="width: 20%"></div>
+                                </div>
+                                <h3>Level 1</h3>
+                                <p>Mild warmth</p>
+                                <span class="price">FREE</span>
+                            </div>
+                            <div class="spice-card" data-level="2" data-price="1000"
+                                onclick="selectSpice(this, 2, 1000)">
+                                <div class="spice-indicator">
+                                    <div class="spice-bar" style="width: 40%"></div>
+                                </div>
+                                <h3>Level 2</h3>
+                                <p>Getting warm</p>
+                                <span class="price">+Rp 1,000</span>
+                            </div>
+                            <div class="spice-card" data-level="3" data-price="2000"
+                                onclick="selectSpice(this, 3, 2000)">
+                                <div class="spice-indicator">
+                                    <div class="spice-bar" style="width: 60%"></div>
+                                </div>
+                                <h3>Level 3</h3>
+                                <p>Spicy kick 🔥</p>
+                                <span class="price">+Rp 2,000</span>
+                            </div>
+                            <div class="spice-card" data-level="4" data-price="3000"
+                                onclick="selectSpice(this, 4, 3000)">
+                                <div class="spice-indicator">
+                                    <div class="spice-bar" style="width: 80%"></div>
+                                </div>
+                                <h3>Level 4</h3>
+                                <p>Hot & fiery 🔥🔥</p>
+                                <span class="price">+Rp 3,000</span>
+                            </div>
+                            <div class="spice-card" data-level="5" data-price="4000"
+                                onclick="selectSpice(this, 5, 4000)">
+                                <div class="spice-indicator">
+                                    <div class="spice-bar" style="width: 100%"></div>
+                                </div>
+                                <h3>Level 5</h3>
+                                <p>EXTREME! 🌋</p>
+                                <span class="price">+Rp 4,000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-actions">
+                        <button class="btn btn-secondary" onclick="prevStep(1)">
+                            <span class="btn-icon">←</span>
+                            Back
+                        </button>
+                        <button class="btn btn-primary" onclick="nextStep(3)">
+                            Next: Add Toppings
+                            <span class="btn-icon">→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Toppings -->
+                <div class="step-content" id="step3">
+                    <div class="section">
+                        <h2 class="section-title">🍘 Additional Toppings</h2>
+                        <p class="section-subtitle">Add extra toppings and drinks to complete your order</p>
+                        <div class="extras-list">
+                            <div class="extra-item" data-item="kerupuk" data-price="2000">
+                                <div class="extra-info">
+                                    <div class="extra-icon">🍘</div>
+                                    <div class="extra-details">
+                                        <h4>Kerupuk</h4>
+                                        <p>Crispy crackers</p>
+                                        <span class="extra-price">Rp 2,000</span>
+                                    </div>
+                                </div>
+                                <div class="quantity-control">
+                                    <button type="button" onclick="changeQuantity('kerupuk', -1)">-</button>
+                                    <span class="quantity" id="qty-kerupuk">0</span>
+                                    <button type="button" onclick="changeQuantity('kerupuk', 1)">+</button>
+                                </div>
+                            </div>
+
+                            <div class="extra-item" data-item="bakso" data-price="3000">
+                                <div class="extra-info">
+                                    <div class="extra-icon">⚽</div>
+                                    <div class="extra-details">
+                                        <h4>Bakso</h4>
+                                        <p>Meatballs</p>
+                                        <span class="extra-price">Rp 3,000</span>
+                                    </div>
+                                </div>
+                                <div class="quantity-control">
+                                    <button type="button" onclick="changeQuantity('bakso', -1)">-</button>
+                                    <span class="quantity" id="qty-bakso">0</span>
+                                    <button type="button" onclick="changeQuantity('bakso', 1)">+</button>
+                                </div>
+                            </div>
+
+                            <div class="extra-item" data-item="sosis" data-price="4000">
+                                <div class="extra-info">
+                                    <div class="extra-icon">🌭</div>
+                                    <div class="extra-details">
+                                        <h4>Sosis</h4>
+                                        <p>Sausage</p>
+                                        <span class="extra-price">Rp 4,000</span>
+                                    </div>
+                                </div>
+                                <div class="quantity-control">
+                                    <button type="button" onclick="changeQuantity('sosis', -1)">-</button>
+                                    <span class="quantity" id="qty-sosis">0</span>
+                                    <button type="button" onclick="changeQuantity('sosis', 1)">+</button>
+                                </div>
+                            </div>
+
+                            <div class="extra-item" data-item="aqua" data-price="3000">
+                                <div class="extra-info">
+                                    <div class="extra-icon">💧</div>
+                                    <div class="extra-details">
+                                        <h4>Aqua</h4>
+                                        <p>Bottled water</p>
+                                        <span class="extra-price">Rp 3,000</span>
+                                    </div>
+                                </div>
+                                <div class="quantity-control">
+                                    <button type="button" onclick="changeQuantity('aqua', -1)">-</button>
+                                    <span class="quantity" id="qty-aqua">0</span>
+                                    <button type="button" onclick="changeQuantity('aqua', 1)">+</button>
+                                </div>
+                            </div>
+
+                            <div class="extra-item" data-item="nutrisari" data-price="5000">
+                                <div class="extra-info">
+                                    <div class="extra-icon">🧃</div>
+                                    <div class="extra-details">
+                                        <h4>Nutrisari</h4>
+                                        <p>Fruit drink</p>
+                                        <span class="extra-price">Rp 5,000</span>
+                                    </div>
+                                </div>
+                                <div class="quantity-control">
+                                    <button type="button" onclick="changeQuantity('nutrisari', -1)">-</button>
+                                    <span class="quantity" id="qty-nutrisari">0</span>
+                                    <button type="button" onclick="changeQuantity('nutrisari', 1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-actions">
+                        <button class="btn btn-secondary" onclick="prevStep(2)">
+                            <span class="btn-icon">←</span>
+                            Back
+                        </button>
+                        <button class="btn btn-primary" onclick="nextStep(4)">
+                            Next: Review Order
+                            <span class="btn-icon">→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Order Review -->
+                <div class="step-content" id="step4">
+                    <div class="section">
+                        <h2 class="section-title">Review Your Order</h2>
+                        <p class="section-subtitle">Please review your seblak selections before checkout</p>
+
+                        <div class="review-summary">
+                            <div class="review-section">
+                                <h3>Your Seblak</h3>
+                                <div class="detail-row">
+                                    <span>Base:</span>
+                                    <span id="reviewBase">-</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span>Kencur Level:</span>
+                                    <span id="reviewKencur">-</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span>Spice Level:</span>
+                                    <span id="reviewSpice">-</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span>Egg:</span>
+                                    <span id="reviewEgg">-</span>
+                                </div>
+                            </div>
+
+                            <div class="review-section" id="reviewExtrasSection">
+                                <h3>Additional Items</h3>
+                                <div id="reviewExtrasList">
+                                    <p class="empty-state">No additional items</p>
+                                </div>
+                            </div>
+
+                            <div class="review-section total-section-review">
+                                <div class="total-breakdown">
+                                    <div class="total-line">
+                                        <span>Seblak Base:</span>
+                                        <span>Rp 15,000</span>
+                                    </div>
+                                    <div class="total-line" id="reviewSpicePrice">
+                                        <span>Spice Level:</span>
+                                        <span>Rp 0</span>
+                                    </div>
+                                    <div class="total-line" id="reviewEggPrice">
+                                        <span>Egg:</span>
+                                        <span>Rp 0</span>
+                                    </div>
+                                    <div class="total-line" id="reviewExtrasPrice">
+                                        <span>Extras:</span>
+                                        <span>Rp 0</span>
+                                    </div>
+                                    <div class="total-line final-total">
+                                        <span>Total:</span>
+                                        <span id="reviewFinalTotal">Rp 15,000</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-actions">
+                        <button class="btn btn-secondary" onclick="prevStep(3)">
+                            <span class="btn-icon">←</span>
+                            Back
+                        </button>
+                        <button class="btn btn-primary" onclick="nextStep(5)">
+                            Next: Checkout
+                            <span class="btn-icon">→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 5: Checkout (Customer Information) -->
+                <div class="step-content" id="step5">
+                    <div class="section">
+                        <h2 class="section-title">Checkout - Customer Information</h2>
+                        <p class="section-subtitle">Please provide your details to complete the order</p>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="customerName">Name *</label>
+                                <input type="text" id="customerName" placeholder="Your name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="orderType">Order Type</label>
+                                <select id="orderType">
+                                    <option value="dine-in">Dine In</option>
+                                    <option value="takeaway">Take Away</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="tableNumber">Table Number</label>
+                                <input type="number" id="tableNumber" placeholder="Table #" min="1">
+                            </div>
+                            <div class="form-group">
+                                <label for="phoneNumber">Phone Number</label>
+                                <input type="tel" id="phoneNumber" placeholder="Your phone number">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2 class="section-title">Special Requests</h2>
+                        <div class="form-group">
+                            <label for="specialNotes">Additional Notes (Optional)</label>
+                            <textarea id="specialNotes" placeholder="Any special requests or allergies..."
+                                rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="step-actions">
+                        <button class="btn btn-secondary" onclick="prevStep(4)">
+                            <span class="btn-icon">←</span>
+                            Back
+                        </button>
+                        <button class="btn btn-primary" onclick="nextStep(6)">
+                            Next: Final Review
+                            <span class="btn-icon">→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 6: Final Confirmation -->
+                <div class="step-content" id="step6">
+                    <div class="section">
+                        <h2 class="section-title">Final Confirmation</h2>
+                        <p class="section-subtitle">Please review all details before placing your order</p>
+
+                        <div class="final-summary">
+                            <div class="summary-section">
+                                <h3>Customer Details</h3>
+                                <div class="detail-row">
+                                    <span>Name:</span>
+                                    <span id="finalCustomerName">-</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span>Order Type:</span>
+                                    <span id="finalOrderType">-</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span>Table Number:</span>
+                                    <span id="finalTableNumber">-</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span>Phone:</span>
+                                    <span id="finalPhone">-</span>
+                                </div>
+                            </div>
+
+                            <div class="summary-section">
+                                <h3>Your Seblak Order</h3>
+                                <div class="detail-row">
+                                    <span>Base:</span>
+                                    <span id="finalBase">-</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span>Kencur Level:</span>
+                                    <span id="finalKencur">-</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span>Spice Level:</span>
+                                    <span id="finalSpice">-</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span>Egg:</span>
+                                    <span id="finalEgg">-</span>
+                                </div>
+                            </div>
+
+                            <div class="summary-section" id="finalExtrasSection">
+                                <h3>Additional Items</h3>
+                                <div id="finalExtrasList">
+                                    <p class="empty-state">No additional items</p>
+                                </div>
+                            </div>
+
+                            <div class="summary-section" id="finalNotesSection">
+                                <h3>Special Notes</h3>
+                                <div id="finalNotes" class="notes-display">
+                                    <p class="empty-state">No special requests</p>
+                                </div>
+                            </div>
+
+                            <div class="summary-section total-section-final">
+                                <div class="total-breakdown">
+                                    <div class="total-line">
+                                        <span>Seblak Base:</span>
+                                        <span>Rp 15,000</span>
+                                    </div>
+                                    <div class="total-line" id="finalSpicePrice">
+                                        <span>Spice Level:</span>
+                                        <span>Rp 0</span>
+                                    </div>
+                                    <div class="total-line" id="finalEggPrice">
+                                        <span>Egg:</span>
+                                        <span>Rp 0</span>
+                                    </div>
+                                    <div class="total-line" id="finalExtrasPrice">
+                                        <span>Extras:</span>
+                                        <span>Rp 0</span>
+                                    </div>
+                                    <div class="total-line final-total">
+                                        <span>Total:</span>
+                                        <span id="finalGrandTotal">Rp 15,000</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-actions">
+                        <button class="btn btn-secondary" onclick="prevStep(5)">
+                            <span class="btn-icon">←</span>
+                            Back
+                        </button>
+                        <button class="btn btn-primary btn-success" onclick="placeOrder()">
+                            <span class="btn-icon">🛒</span>
+                            Confirm Order
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel - Order Summary -->
+            <div class="summary-panel">
+                <div class="summary-card">
+                    <h2 class="summary-title">Order Summary</h2>
+
+                    <div class="order-details" id="orderDetails">
+                        <div class="order-item">
+                            <span>Customer:</span>
+                            <span id="customerDisplay">-</span>
+                        </div>
+                        <div class="order-item">
+                            <span>Order Type:</span>
+                            <span id="orderTypeDisplay">-</span>
+                        </div>
+                        <div class="order-item">
+                            <span>Base:</span>
+                            <span id="baseDisplay">-</span>
+                        </div>
+                        <div class="order-item">
+                            <span>Kencur:</span>
+                            <span id="kencurDisplay">-</span>
+                        </div>
+                        <div class="order-item">
+                            <span>Spice Level:</span>
+                            <span id="spiceDisplay">-</span>
+                        </div>
+                        <div class="order-item">
+                            <span>Egg:</span>
+                            <span id="eggDisplay">-</span>
+                        </div>
+                    </div>
+
+                    <div class="extras-summary" id="extrasSummary">
+                        <h3>Additional Items</h3>
+                        <div class="extras-list-summary" id="extrasListSummary">
+                            <p class="empty-state">No additional items</p>
+                        </div>
+                    </div>
+
+                    <div class="total-section">
+                        <div class="total-row">
+                            <span>Subtotal:</span>
+                            <span id="subtotalAmount">Rp 0</span>
+                        </div>
+                        <div class="total-row final-total">
+                            <span>Total:</span>
+                            <span id="totalAmount">Rp 0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="success-icon">✅</div>
+                <h2>Order Placed Successfully!</h2>
+            </div>
+            <div class="modal-body">
+                <p>Your seblak order has been received and is being prepared.</p>
+                <div class="order-number">
+                    Order #<span id="orderNumber"></span>
+                </div>
+                <p class="estimated-time">Estimated preparation time: 15-20 minutes</p>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-primary" onclick="newOrder()">Place New Order</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
