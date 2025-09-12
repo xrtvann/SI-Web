@@ -29,11 +29,11 @@ class Perpustakaan
 
     public function kembali($jumlahKembali = null, $tglKembaliCustom = null)
     {
-        // If no parameters provided, use default full return
+       
         $jumlah = $jumlahKembali ?? $this->jumlahBuku;
         $tanggalKembali = $tglKembaliCustom ?? $this->tglKembali;
 
-        // Calculate if it's late and fine
+        
         $tglPinjam = new DateTime($this->tglPinjam);
         $tglKembali = new DateTime($tanggalKembali);
         $selisih = $tglKembali->diff($tglPinjam)->days;
@@ -41,17 +41,15 @@ class Perpustakaan
         $status = $selisih <= 5 ? "tepat waktu" : "terlambat " . $selisih . " hari";
         $denda = $selisih > 5 ? $jumlah * 2500 : 0;
 
-        // Base return message
         $result = "Buku $this->judulBuku telah dikembalikan oleh $this->peminjam";
 
-        // Add quantity if partial return
+    
         if ($jumlahKembali !== null && $jumlahKembali < $this->jumlahBuku) {
             $result = "Dikembalikan $jumlah dari $this->jumlahBuku buku $this->judulBuku oleh $this->peminjam";
         }
 
         $result .= " pada tanggal $tanggalKembali ($status)";
 
-        // Add fine information if applicable
         if ($denda > 0) {
             $result .= " - Denda: Rp $denda";
         }
