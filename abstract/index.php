@@ -7,6 +7,8 @@ require_once 'itemProduct/ItemProduct.php';
 require_once 'itemProduct/Baju.php';
 require_once 'itemProduct/Celana.php';
 require_once 'itemProduct/Topi.php';
+require_once 'tablet/Tablet.php';
+
 
 echo "<h1>Tugas 1</h1>";
 $mobilBMW = new mobilBMW();
@@ -46,3 +48,10 @@ echo "Nama : " . $baju->nama() . "<br>";
 echo "Tipe : ". $baju->getTipe() . "<br>";
 echo "Warna : " . $baju->warna() . "<br>";
 echo "Ukuran : " . $baju->ukuran() . "<br>";
+
+echo "<h1>Tugas 3</h1>";
+$redmi = new Handphone("Xiaomi Redmi Note 10", "48 MP", "4 GB", "Baru");
+echo $redmi->beliHandphone();
+echo "<br>";
+$samsung = new Handphone("Samsung Galaxy A12", "48 MP", "4 GB", "Bekas");
+echo $samsung->beliHandphone();
